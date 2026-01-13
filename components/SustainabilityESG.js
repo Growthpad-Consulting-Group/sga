@@ -1,5 +1,9 @@
 'use client'
 
+<<<<<<< HEAD
+=======
+import SectionWrapper from './SectionWrapper'
+>>>>>>> 09f502f6831cafc0fec0c8166129968f60057ea0
 import { motion } from 'framer-motion'
 import { Icon } from '@iconify/react'
 import Image from 'next/image'
@@ -59,7 +63,11 @@ const sdgGoals = [
 
 export default function SustainabilityESG() {
   return (
+<<<<<<< HEAD
     <section id="sustainability-esg" className="section-snap flex items-center justify-center bg-light-grey relative py-12 md:py-16">
+=======
+    <SectionWrapper id="sustainability-esg" className="bg-light-grey relative py-12 md:py-16">
+>>>>>>> 09f502f6831cafc0fec0c8166129968f60057ea0
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -156,8 +164,13 @@ export default function SustainabilityESG() {
           </motion.div>
         </div>
       </motion.div>
+<<<<<<< HEAD
       <DecorativePattern className="transition-none" static={true} />
     </section>
+=======
+      <DecorativePattern className="transition-none" />
+    </SectionWrapper>
+>>>>>>> 09f502f6831cafc0fec0c8166129968f60057ea0
   )
 }
 

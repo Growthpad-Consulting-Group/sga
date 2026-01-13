@@ -1,6 +1,10 @@
 'use client'
 
 import { useState } from 'react'
+<<<<<<< HEAD
+=======
+import SectionWrapper from './SectionWrapper'
+>>>>>>> 09f502f6831cafc0fec0c8166129968f60057ea0
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Icon } from '@iconify/react'
@@ -41,7 +45,11 @@ export default function HappyClients() {
     ? clients 
     : clients.filter(client => client.category === activeFilter)
   return (
+<<<<<<< HEAD
     <section id="happy-clients" className="section-snap flex items-center justify-center bg-white py-12 md:py-16 relative">
+=======
+    <SectionWrapper id="happy-clients" className="bg-white py-12 md:py-16 relative">
+>>>>>>> 09f502f6831cafc0fec0c8166129968f60057ea0
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -144,8 +152,13 @@ export default function HappyClients() {
           })}
         </div>
       </motion.div>
+<<<<<<< HEAD
       <DecorativePattern className="transition-none" static={true} />
     </section>
+=======
+      <DecorativePattern className="transition-none" />
+    </SectionWrapper>
+>>>>>>> 09f502f6831cafc0fec0c8166129968f60057ea0
   )
 }
 

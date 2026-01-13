@@ -39,7 +39,11 @@ const bottomRowStats = [
   },
 ]
 
+<<<<<<< HEAD
 export default function OurImpactInNumbers({ showPattern = true }) {
+=======
+export default function OurImpactInNumbers() {
+>>>>>>> 09f502f6831cafc0fec0c8166129968f60057ea0
   return (
     <SectionWrapper id="our-impact" className="bg-white relative overflow-hidden">
       {/* Background Image - Static, no scroll animation */}
@@ -156,6 +160,7 @@ export default function OurImpactInNumbers({ showPattern = true }) {
       </div>
       
       {/* Decorative Pattern at Bottom - Static, no animations */}
+<<<<<<< HEAD
       {showPattern && (
         <div className="absolute bottom-0 left-0 right-0 w-full" style={{ pointerEvents: 'none' }}>
           <DecorativePattern 
@@ -164,6 +169,13 @@ export default function OurImpactInNumbers({ showPattern = true }) {
           />
         </div>
       )}
+=======
+      <div className="absolute bottom-0 left-0 right-0 w-full" style={{ pointerEvents: 'none' }}>
+        <DecorativePattern 
+          className="z-10 transition-none !transition-none"
+        />
+      </div>
+>>>>>>> 09f502f6831cafc0fec0c8166129968f60057ea0
     </SectionWrapper>
   )
 }

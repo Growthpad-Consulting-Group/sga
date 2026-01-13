@@ -146,7 +146,11 @@ export default function WhereWeOperate() {
           </motion.div>
         </div>
       </motion.div>
+<<<<<<< HEAD
       <DecorativePattern circleCount={35} static={true} />
+=======
+      <DecorativePattern circleCount={35} />
+>>>>>>> 09f502f6831cafc0fec0c8166129968f60057ea0
     </section>
   )
 }

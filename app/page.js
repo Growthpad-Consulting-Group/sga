@@ -56,11 +56,7 @@ export default function HomePage() {
       />
       <WhereWeOperate />
       <SustainabilityESG />
-<<<<<<< HEAD
       <News staticPattern={true} />
-=======
-      <News />
->>>>>>> 09f502f6831cafc0fec0c8166129968f60057ea0
       <HappyClients />
       <JoinOurMission />
       <GroupFooter />

@@ -1,11 +1,5 @@
 # SGA Security Group Website
 
-<<<<<<< HEAD
-A website for SGA Security Group, built with Next.js, Tailwind CSS, Supabase, and Framer Motion.
-
-
-## Setup Instructions
-=======
 A production-ready corporate website for SGA Security Group, built with Next.js, Tailwind CSS, Supabase, and Framer Motion.
 
 ## 🚀 Tech Stack
@@ -54,16 +48,12 @@ A production-ready corporate website for SGA Security Group, built with Next.js,
 - **Navy Blue**: `#00043E`
 
 ## 🛠️ Setup Instructions
->>>>>>> 09f502f6831cafc0fec0c8166129968f60057ea0
 
 1. **Install Dependencies**
    ```bash
    npm install
    ```
 
-<<<<<<< HEAD
-## Available Scripts
-=======
 2. **Set Up Environment Variables**
    
    Create a `.env.local` file in the root directory:
@@ -114,17 +104,12 @@ Each page shares the same component structure but includes localized content.
 - **Supabase Integration**: Contact form submissions stored in Supabase
 
 ## 📝 Available Scripts
->>>>>>> 09f502f6831cafc0fec0c8166129968f60057ea0
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm start` - Start production server
 - `npm run lint` - Run ESLint
 
-<<<<<<< HEAD
-
-## Production Build
-=======
 ## 🎯 Page Sections
 
 All pages include these full-screen sections:
@@ -139,16 +124,12 @@ All pages include these full-screen sections:
 9. Footer
 
 ## 📦 Production Build
->>>>>>> 09f502f6831cafc0fec0c8166129968f60057ea0
 
 ```bash
 npm run build
 npm start
 ```
 
-<<<<<<< HEAD
-## License
-=======
 ## 🔒 Security Notes
 
 - Environment variables should never be committed to version control
@@ -156,7 +137,6 @@ npm start
 - Contact form includes basic validation
 
 ## 📄 License
->>>>>>> 09f502f6831cafc0fec0c8166129968f60057ea0
 
 Proprietary - SGA Security Group
 

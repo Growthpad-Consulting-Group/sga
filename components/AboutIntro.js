@@ -58,11 +58,7 @@ export default function AboutIntro({ imageUrl = '/images/group/about/about-2.png
         </div>
       </motion.div>
       <div className="absolute bottom-0 left-0 right-0 w-full">
-<<<<<<< HEAD
         <DecorativePattern className="transition-none" static={true} />
-=======
-        <DecorativePattern className="transition-none" />
->>>>>>> 09f502f6831cafc0fec0c8166129968f60057ea0
       </div>
     </section>
   )

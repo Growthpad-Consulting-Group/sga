@@ -27,6 +27,7 @@ export default function IndustryPageTemplate({
   ctaButtonText,
   ctaButtonLink,
   countryCode = 'ke',
+  industryType = 'individuals', // 'individuals' or 'corporate'
 }) {
   const countryNames = {
     ke: 'Kenya',
@@ -45,100 +46,92 @@ export default function IndustryPageTemplate({
   return (
     <>
       {/* Hero Section */}
-      <section id="hero" className="bg-white text-dark-charcoal pt-16 sm:pt-20 pb-20 relative">
+      <section id="hero" className="bg-white text-dark-charcoal pt-16 sm:pt-20 pb-12 sm:pb-16 relative overflow-hidden">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start lg:items-center py-8">
-            {/* Left Column - Content */}
+          <div className="py-8 sm:py-12 lg:py-16 space-y-6 sm:space-y-8">
+            {/* Orange Badge */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-4 sm:space-y-6 flex flex-col justify-center relative"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="inline-block"
             >
-              <h3 className="text-sm md:text-base font-bold text-navy-blue tracking-wide">
-                Industrial Detail • {countryName}
-              </h3>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-orange">
-                {industryName}
-              </h2>
-              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-                {heroDescription}
-              </p>
-              
-              {/* Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Link
-                    href="/contact"
-                    className="inline-block bg-primary-orange text-white px-6 py-3 rounded-full font-semibold text-sm md:text-base hover:bg-primary-orange/90 transition-colors"
-                  >
-                    Request quote
-                  </Link>
-                </motion.div>
-                <motion.a
-                  href={`tel:${emergencyPhone.replace(/\s/g, '')}`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-transparent border-2 border-navy-blue text-navy-blue px-6 py-3 rounded-full font-semibold text-sm md:text-base hover:bg-navy-blue hover:text-white transition-colors flex items-center justify-center gap-2"
-                >
-                  <Icon icon="streamline-sharp:emergency-call-remix" className="w-4 h-4" />
-                  <span>Emergency: {emergencyPhone}</span>
-                </motion.a>
-              </div>
-
-              {/* Explore More Animated Arrow - Middle of Left Column */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1, duration: 0.5 }}
-                className="pt-4"
-              >
-                <motion.div
-                  animate={{
-                    y: [0, 10, 0],
-                  }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="flex items-center gap-2 cursor-pointer"
-                  onClick={() => {
-                    const nextSection = document.querySelector('#overview') || document.querySelector('section:nth-of-type(2)')
-                    if (nextSection) {
-                      nextSection.scrollIntoView({ behavior: 'smooth' })
-                    }
-                  }}
-                >
-                  <span className="text-sm text-gray-700 uppercase font-medium">Explore more</span>
-                  <Icon 
-                    icon="material-symbols-light:arrow-circle-down-outline-rounded" 
-                    className="w-6 h-6 text-navy-blue"
-                  />
-                </motion.div>
-              </motion.div>
+              <span className="bg-primary-orange text-white px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold tracking-wide">
+                Industry Focus: {industryType === 'corporate' ? 'Corporate' : 'Individuals'}
+              </span>
             </motion.div>
 
-            {/* Right Column - Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative w-full h-[300px] sm:h-[350px] lg:h-[400px] xl:h-[450px]"
+            {/* Title */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-navy-blue leading-tight"
             >
-              <Image
-                src={heroImage}
-                alt={`${industryName} Security - ${heroTitle}`}
-                fill
-                className="object-cover rounded-lg"
-                priority
-              />
+              {heroTitle}
+            </motion.h1>
+
+            {/* Hero Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed max-w-4xl"
+            >
+              {heroDescription}
+            </motion.p>
+
+            {/* Flexed List with Check Icons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-wrap gap-x-6 gap-y-4 pt-2"
+            >
+              {[
+                '24/7 Alarm Monitoring',
+                'Rapid Response Teams',
+                'Professional Guarding',
+                'Remote CCTV Surveillance'
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                  className="flex items-center gap-2.5"
+                >
+                  <Icon 
+                    icon="icon-park-outline:check-one" 
+                    className="w-5 h-5 md:w-6 md:h-6 text-primary-orange flex-shrink-0" 
+                  />
+                  <span className="text-sm md:text-base text-gray-800 font-medium whitespace-nowrap">
+                    {item}
+                  </span>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </div>
+
+        {/* Full Width Image at Bottom */}
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="relative w-full max-w-7xl mx-auto h-[280px] sm:h-[380px] md:h-[450px] lg:h-[520px] rounded-xl overflow-hidden shadow-xl"
+          >
+            <Image
+              src={heroImage}
+              alt={`${industryName} Security - ${heroTitle}`}
+              fill
+              className="object-cover"
+              priority
+            />
+          </motion.div>
+        </div>
+
         {/* Decorative Pattern at Bottom */}
         <div className="absolute bottom-0 left-0 right-0 w-full">
           <DecorativePattern 
@@ -149,54 +142,86 @@ export default function IndustryPageTemplate({
         </div>
       </section>
 
-      {/* Overview Section */}
-      <section id="overview" className=" flex items-center justify-center bg-light-grey text-dark-charcoal py-16 sm:py-20 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Content */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="space-y-5"
-            >
-              <h2 className="text-xl md:text-3xl font-bold text-primary-orange relative pb-3">
-                <span>{overviewTitle}</span>
-                <span 
-                  className="absolute bottom-0 left-0 w-full"
-                  style={{
-                    background: 'linear-gradient(to right, #00043E 0%, #00043E 70%, transparent 100%)',
-                    height: '1px'
-                  }}
-                ></span>
-              </h2>
-              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                {overviewDescription}
-              </p>
-            </motion.div>
+      {/* Our Key Solutions Section */}
+      <section className="bg-white text-dark-charcoal py-16 sm:py-20 lg:py-24 relative">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-10 sm:mb-12 lg:mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-orange relative pb-3">
+              <span>Our Key Solutions</span>
+              <span 
+                className="absolute bottom-0 left-0 w-full"
+                style={{
+                  background: 'linear-gradient(to right, #00043E 0%, #00043E 70%, transparent 100%)',
+                  height: '1px'
+                }}
+              ></span>
+            </h2>
+          </motion.div>
 
-            {/* Image */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+            {/* Left Column - Grid Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-6 order-1 lg:order-1 h-full">
+              {[
+                {
+                  title: '24/7 Alarm Monitoring',
+                  description: 'Linked to SGA\'s national control centre for instant alerts and verified dispatch.'
+                },
+                {
+                  title: 'Rapid Response Teams',
+                  description: 'Strategically deployed mobile units for immediate neighbourhood response.'
+                },
+                {
+                  title: 'Professional Guarding',
+                  description: 'Trained officers for access control, patrols, and visitor screening for homes and estates.'
+                },
+                {
+                  title: 'Remote CCTV Surveillance',
+                  description: 'Real-time monitoring with cloud access for complete visibility.'
+                }
+              ].map((solution, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-primary-orange rounded-xl p-6 lg:p-7 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 flex flex-col h-full"
+                >
+                  <h3 className="text-base md:text-lg lg:text-xl font-bold text-white mb-3 lg:mb-4">
+                    {solution.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-white/90 leading-relaxed">
+                    {solution.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Right Column - Image */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative w-full h-full min-h-[350px] lg:min-h-[450px]"
+              transition={{ duration: 0.8 }}
+              className="relative w-full h-[350px] sm:h-[450px] lg:h-full rounded-xl overflow-hidden shadow-xl order-2 lg:order-2"
             >
               <Image
-                src={overviewImage}
-                alt={`${industryName} Security Overview`}
+                src={heroImage}
+                alt="Our Key Solutions"
                 fill
-                className="object-cover rounded-lg"
+                className="object-cover"
               />
             </motion.div>
           </div>
-        </motion.div>
+        </div>
+
+        {/* Decorative Pattern at Bottom */}
         <div className="absolute bottom-0 left-0 right-0 w-full">
           <DecorativePattern 
             className="transition-none" 
@@ -206,55 +231,66 @@ export default function IndustryPageTemplate({
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="section-snap flex items-center justify-center bg-white text-dark-charcoal py-16 sm:py-20 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        >
-          <div className="mb-12">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="space-y-3"
-            >
-              <h2 className="text-xl md:text-3xl font-bold text-primary-orange relative pb-3">
-                <span>{servicesTitle}</span>
-                <span 
-                  className="absolute bottom-0 left-0 w-full"
-                  style={{
-                    background: 'linear-gradient(to right, #00043E 0%, #00043E 70%, transparent 100%)',
-                    height: '1px'
-                  }}
-                ></span>
-              </h2>
-            </motion.div>
-          </div>
+      {/* The SGA Advantage Section */}
+      <section className="bg-white text-dark-charcoal py-16 sm:py-20 lg:py-24 relative">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-10 sm:mb-12 lg:mb-16 text-center"
+          >
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-orange relative pb-3 inline-block">
+              <span>The SGA Advantage</span>
+              <span 
+                className="absolute bottom-0 left-0 w-full"
+                style={{
+                  background: 'linear-gradient(to right, #00043E 0%, #00043E 70%, transparent 100%)',
+                  height: '1px'
+                }}
+              ></span>
+            </h2>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {services.map((service, index) => (
+          <div className="flex flex-wrap justify-center gap-6 lg:gap-8">
+            {[
+              {
+                title: '50+ Years Experience',
+                description: 'Decades of trusted security solutions in East Africa.'
+              },
+              {
+                title: '24/7 Verified Response',
+                description: 'Always on standby with swift, professional assistance.'
+              },
+              {
+                title: 'Trained & Vetted Personnel',
+                description: 'Highly skilled guards ensuring your complete safety.'
+              },
+              {
+                title: 'Regional Presence',
+                description: 'Operating seamlessly across Kenya, Uganda & Tanzania.'
+              }
+            ].map((advantage, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-primary-orange rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow"
+                className="bg-primary-orange rounded-xl p-6 lg:p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 flex flex-col items-center text-center flex-1 min-w-[240px] max-w-[270px]"
               >
-                <h3 className="text-lg font-bold text-white mb-2">
-                  {service.title}
+                <h3 className="text-lg md:text-xl font-bold text-white mb-3 lg:mb-4">
+                  {advantage.title}
                 </h3>
-                <p className="text-sm text-white leading-relaxed">
-                  {service.description}
+                <p className="text-sm md:text-base text-white/90 leading-relaxed">
+                  {advantage.description}
                 </p>
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
+
         {/* Decorative Pattern at Bottom */}
         <div className="absolute bottom-0 left-0 right-0 w-full">
           <DecorativePattern 

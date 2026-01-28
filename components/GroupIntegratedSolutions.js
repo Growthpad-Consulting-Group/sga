@@ -81,7 +81,7 @@ export default function GroupIntegratedSolutions({
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
                 />
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-navy-blue/70 group-hover:bg-primary-orange/80 transition-colors duration-300"></div>
+                <div className="absolute inset-0 bg-black/50 group-hover:bg-primary-orange/80 transition-colors duration-300"></div>
                 {/* Content */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-10">
                   <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">

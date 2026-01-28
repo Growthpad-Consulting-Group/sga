@@ -54,7 +54,7 @@ export default function DecorativePattern({
                 className="flex items-center flex-1"
                 style={{ transform: 'none' }}
               >
-                <div className={`${circleSize} rounded-full ${circleColor} shadow-lg flex-shrink-0`}></div>
+                <div className={`${circleSize} rounded-full ${circleColor} border-2 border-gray-200 shadow-lg flex-shrink-0`}></div>
                 <div className="flex flex-col gap-1 flex-1 justify-center items-center">
                   {[...Array(lineCount)].map((_, lineIndex) => (
                     <div key={lineIndex} className={`w-full h-0.5 ${lineColorClass}`}></div>
